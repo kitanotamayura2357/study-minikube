@@ -48,3 +48,24 @@ sysctl -a | grep -E --color 'machdep.cpu.features|VMX'
 ```
 出力にVMXが表示されている場合（色付けされているはずです）、VT-x機能がマシンで有効になっています。
 
+## kubectlの任意の設定 
+
+### シェルの自動補完を有効にする
+
+#### bashのアップグレード 
+
+bashのバージョンが4.1以降の使用を前提とする.
+バージョンの確認
+
+```
+echo $BASH_VERSION
+```
+
+バージョンアップ
+```
+brew install bash
+```
+
+以下あとで。。。
+https://kubernetes.io/ja/docs/tasks/tools/install-kubectl/#install-kubectl-on-macosを参照する
+
