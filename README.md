@@ -48,6 +48,92 @@ sysctl -a | grep -E --color 'machdep.cpu.features|VMX'
 ```
 出力にVMXが表示されている場合（色付けされているはずです）、VT-x機能がマシンで有効になっています。
 
+
+ハイパーバイザーのインストール 
+以下のいずれかのハイパーバイザーをインストールする  
+- HyperKit
+- VirtualBox
+- VMware Fusion
+
+
+バーチャルボックスのインストール
+
+https://pc-karuma.net/mac-virtualbox-install/
+
+
+
+Minikubeのインストール
+
+```
+brew install minikube
+```
+
+### インストールの確認
+
+ハイパーバイザーとMinikube両方のインストール成功を確認するため、以下のコマンドをローカルKubernetesクラスターを起動するために実行
+```
+minikube start --vm-driver=<driver_name>
+```
+<driver_name>はインストールしたハイパーバイザーの名前を小文字で入力（virtualboxなど）
+
+
+minikube startが完了した場合、次のコマンドを実行してクラスターの状態を確認
+```
+minikube status
+```
+
+クラスターが起動している場合は以下のようになる  
+
+```
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+```
+
+クラスターの停止
+
+```
+minikube stop
+```
+
+停止している時には以下のようになる
+
+```
+minikube
+type: Control Plane
+host: Stopped
+kubelet: Stopped
+apiserver: Stopped
+kubeconfig: Stopped
+```
+
+### ローカル状態のクリーンアップ 
+
+
+ローカル状態のminikubeをクリアする
+```
+minikube delete
+```
+
+
+
+## Minikubeを使用してローカル環境でKubernetesを動かす
+
+
+Minikubeを起動する
+```
+$ minikube start
+```
+
+```
+kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
+```
+
+```
+kubectl expose deployment hello-minikube --type=NodePort --port=8080
+```
+
 ## kubectlの任意の設定 
 
 ### シェルの自動補完を有効にする
