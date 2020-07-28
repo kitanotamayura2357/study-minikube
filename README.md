@@ -20,31 +20,31 @@ $ curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s 
 ```
 kubectlバイナリを実行可能にする
 ```
-chmod +x ./kubectl
+$ chmod +x ./kubectl
 ```
 
 バイナリをPATHの中に移動させてください。
 ```
-mv ./kubectl /usr/local/bin/kubectl
+$ mv ./kubectl /usr/local/bin/kubectl
 ```
 
 ### Homebrewを使用してmacOSへインストールする
 
 インストールコマンドを実行
 ```
-brew install kubectl 
+$ brew install kubectl 
 ```
 
 インストールしたバージョンが最新であることを確認
 ```
-kubectl version --client
+$ kubectl version --client
 ```
 
 ## Minikubeのインストール
 
 仮想化がmacOSでサポートされているかどうかを確認
 ```
-sysctl -a | grep -E --color 'machdep.cpu.features|VMX'
+$ sysctl -a | grep -E --color 'machdep.cpu.features|VMX'
 ```
 出力にVMXが表示されている場合（色付けされているはずです）、VT-x機能がマシンで有効になっています。
 
@@ -65,21 +65,21 @@ https://pc-karuma.net/mac-virtualbox-install/
 Minikubeのインストール
 
 ```
-brew install minikube
+$ brew install minikube
 ```
 
 ### インストールの確認
 
 ハイパーバイザーとMinikube両方のインストール成功を確認するため、以下のコマンドをローカルKubernetesクラスターを起動するために実行
 ```
-minikube start --vm-driver=<driver_name>
+$ minikube start --vm-driver=<driver_name>
 ```
 <driver_name>はインストールしたハイパーバイザーの名前を小文字で入力（virtualboxなど）
 
 
 minikube startが完了した場合、次のコマンドを実行してクラスターの状態を確認
 ```
-minikube status
+$ minikube status
 ```
 
 クラスターが起動している場合は以下のようになる  
@@ -94,7 +94,7 @@ kubeconfig: Configured
 クラスターの停止
 
 ```
-minikube stop
+$ minikube stop
 ```
 
 停止している時には以下のようになる
@@ -113,7 +113,7 @@ kubeconfig: Stopped
 
 ローカル状態のminikubeをクリアする
 ```
-minikube delete
+$ minikube delete
 ```
 
 
@@ -127,11 +127,11 @@ $ minikube start
 ```
 
 ```
-kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
+$ kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
 ```
 
 ```
-kubectl expose deployment hello-minikube --type=NodePort --port=8080
+$ kubectl expose deployment hello-minikube --type=NodePort --port=8080
 ```
 
 ## kubectlの任意の設定 
@@ -144,14 +144,13 @@ bashのバージョンが4.1以降の使用を前提とする.
 バージョンの確認
 
 ```
-echo $BASH_VERSION
+$ echo $BASH_VERSION
 ```
 
 バージョンアップ
 ```
-brew install bash
+$ brew install bash
 ```
 
 以下あとで。。。
 https://kubernetes.io/ja/docs/tasks/tools/install-kubectl/#install-kubectl-on-macosを参照する
-
