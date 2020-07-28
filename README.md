@@ -138,6 +138,48 @@ $ kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
 $ kubectl expose deployment hello-minikube --type=NodePort --port=8080
 ```
 
+サーバを立てる
+```
+minikube service hello-minikube --url
+```
+
+ブラウザから表示されているURLにアクセスするといかが表示される  
+```
+Hostname: hello-minikube-64b64df8c9-8sgbf
+
+Pod Information:
+	-no pod information available-
+
+Server values:
+	server_version=nginx: 1.13.3 - lua: 10008
+
+Request Information:
+	client_address=10.244.0.1
+	method=GET
+	real path=/
+	query=
+	request_version=1.1
+	request_scheme=http
+	request_uri=http://127.0.0.1:8080/
+
+Request Headers:
+	accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	accept-encoding=gzip, deflate, br
+	accept-language=ja,en-US;q=0.9,en;q=0.8
+	connection=keep-alive
+	cookie=session=.eJyrVopPy0kszkgtVrKKrlZSKAFSSrmpxcWJ6alKOkppmTmpCnn5JQpp-aV5JUqxtTq0UxNTamyQYgoiEw3BpAmITE0CkSbJYNIIRFokgkjzVBBpCpa1NB41kWomxtYCAIG3oms.XxQusQ.Mt6q0vP4E8W-qTN5zSJ1AwdNAu8
+	host=127.0.0.1:54814
+	sec-fetch-dest=document
+	sec-fetch-mode=navigate
+	sec-fetch-site=none
+	upgrade-insecure-requests=1
+	user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+
+Request Body:
+	-no body in request-
+```
+
+
 ## kubectlの任意の設定 
 
 ### シェルの自動補完を有効にする
