@@ -179,6 +179,20 @@ Request Body:
 	-no body in request-
 ```
 
+services hello-minikubenの削除
+```
+kubectl delete services hello-minikube
+```
+
+deployment hello-minikubeの削除
+```
+kubectl delete deployment hello-minikube
+```
+
+minikubeの停止
+```
+minikube stop
+```
 
 ## kubectlの任意の設定 
 
