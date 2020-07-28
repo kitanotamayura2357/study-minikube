@@ -68,6 +68,10 @@ Minikubeのインストール
 $ brew install minikube
 ```
 
+Minikube実行可能バイナリをパスに追加
+```
+$ sudo mv minikube /usr/local/bin
+```
 ### インストールの確認
 
 ハイパーバイザーとMinikube両方のインストール成功を確認するため、以下のコマンドをローカルKubernetesクラスターを起動するために実行
